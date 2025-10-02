@@ -49,4 +49,5 @@ public class Usuario {
     public String toString() {
         return nombre + " [T:" + t + ", F:" + f + ", R:" + r + ", U:" + u + "]";
     }
+    
 }

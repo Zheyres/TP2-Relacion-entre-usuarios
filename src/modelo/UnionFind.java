@@ -26,7 +26,7 @@ public class UnionFind {
 
         if (rootX == rootY) return false; // ya están conectados
 
-        // unión por rango
+        // unión por rango , el mas chico se uni al grupo mas grande.
         if (rank[rootX] < rank[rootY]) {
             parent[rootX] = rootY;
         } else if (rank[rootX] > rank[rootY]) {

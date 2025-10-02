@@ -16,16 +16,18 @@ public class GrafoCompleto {
         vertices.add(u);
     }
 
-    
     public void construirAristas() {
         aristas.clear();
         for (int i = 0; i < vertices.size(); i++) {
-            for (int j = i + 1; j < vertices.size(); j++) {
-                aristas.add(new Arista(vertices.get(i), vertices.get(j)));
+            for (int j = i + 1; j < vertices.size(); j++) { // j = i+1 evita duplicados y C-C
+                Usuario u1 = vertices.get(i);
+                Usuario u2 = vertices.get(j);
+                aristas.add(new Arista(u1, u2));
             }
         }
     }
 
+    
     public List<Usuario> getUsuarios() { return vertices; }
 	public List<Arista> getAristas() { return aristas; }
 }

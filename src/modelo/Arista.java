@@ -24,4 +24,23 @@ public class Arista implements Comparable<Arista> {
     public String toString() {
         return u1.getNombre() + " - " + u2.getNombre() + " : " + peso;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        Arista arista = (Arista) o;
+        
+        // Comparamos si (this.u1 == arista.u1 Y this.u2 == arista.u2) 
+        // O si (this.u1 == arista.u2 Y this.u2 == arista.u1)
+        boolean ordenDirecto = this.u1.equals(arista.u1) && this.u2.equals(arista.u2);
+        boolean ordenInverso = this.u1.equals(arista.u2) && this.u2.equals(arista.u1);
+
+        return ordenDirecto || ordenInverso;
+    }
+    @Override
+    public int hashCode() {
+        // La suma de los hashes es conmutativa: hash(u1) + hash(u2) = hash(u2) + hash(u1)
+        return u1.hashCode() + u2.hashCode(); 
+    }
 }
