@@ -11,8 +11,8 @@ public class Arista implements Comparable<Arista> {
         this.peso = u1.similaridad(u2);
     }
 
-    public Usuario getU1() { return u1; }
-    public Usuario getU2() { return u2; }
+    public Usuario getUsuario1() { return u1; }
+    public Usuario getUsuario2() { return u2; }
     public int getPeso() { return peso; }
 
     @Override

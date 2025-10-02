@@ -16,9 +16,7 @@ public class GrafoCompleto {
         vertices.add(u);
     }
 
-    public List<Usuario> getVertices() { return vertices; }
-    public List<Arista> getAristas() { return aristas; }
-
+    
     public void construirAristas() {
         aristas.clear();
         for (int i = 0; i < vertices.size(); i++) {
@@ -27,4 +25,7 @@ public class GrafoCompleto {
             }
         }
     }
+
+    public List<Usuario> getUsuarios() { return vertices; }
+	public List<Arista> getAristas() { return aristas; }
 }
