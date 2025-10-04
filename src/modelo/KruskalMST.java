@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.*;
 
-public class KruskalMST {
+public class KruskalMST implements IKruskalMST {
     private List<Arista> mst;
 
     public KruskalMST(GrafoCompleto grafo) {
@@ -27,7 +27,8 @@ public class KruskalMST {
             }
         }
     }
-
+    
+    @Override
     public List<Arista> getMST() {
         return mst;
     }
