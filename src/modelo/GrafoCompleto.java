@@ -34,11 +34,11 @@ public class GrafoCompleto implements IGrafoCompleto {
 		if(aristas.size()<2) {return false;}
 		return true;
 	}
+    
     @Override
     public List<Usuario> getUsuarios() { return vertices; }
 	
     @Override
     public List<Arista> getAristas() { return aristas; }
-	
 	
 }

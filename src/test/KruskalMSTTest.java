@@ -17,14 +17,16 @@ public class KruskalMSTTest {
         Usuario u1 = new Usuario("A", 5, 2, 3, 1);
         Usuario u2 = new Usuario("B", 4, 2, 3, 2);
         Usuario u3 = new Usuario("C", 1, 5, 4, 3);
-
-        List<Usuario> usuarios = List.of(u1, u2, u3);
+        Usuario u4 = new Usuario("D", 2, 2, 4, 1);
+        
+        List<Usuario> usuarios = List.of(u1, u2, u3,u4);
 
         // Grafo completo
         GrafoCompleto grafo = new GrafoCompleto();
         grafo.agregarUsuario(u1);
         grafo.agregarUsuario(u2);
         grafo.agregarUsuario(u3);
+        grafo.agregarUsuario(u4);
         grafo.construirAristas();
         
         // Construir MST
