@@ -28,9 +28,17 @@ public class GrafoCompleto implements IGrafoCompleto {
             }
         }
     }
-
+    
+    @Override
+	public boolean aristasMasDeDos() {
+		if(aristas.size()<2) {return false;}
+		return true;
+	}
     @Override
     public List<Usuario> getUsuarios() { return vertices; }
-	@Override
+	
+    @Override
     public List<Arista> getAristas() { return aristas; }
+	
+	
 }
