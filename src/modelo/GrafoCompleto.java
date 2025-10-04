@@ -3,8 +3,9 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GrafoCompleto {
-    private List<Usuario> vertices;
+public class GrafoCompleto implements IGrafoCompleto {
+    
+	private List<Usuario> vertices;
     private List<Arista> aristas;
 
     public GrafoCompleto() {
@@ -12,10 +13,11 @@ public class GrafoCompleto {
         this.aristas = new ArrayList<>();
     }
 
+    @Override
     public void agregarUsuario(Usuario u) {
         vertices.add(u);
     }
-
+    @Override
     public void construirAristas() {
         aristas.clear();
         for (int i = 0; i < vertices.size(); i++) {
@@ -27,7 +29,8 @@ public class GrafoCompleto {
         }
     }
 
-    
+    @Override
     public List<Usuario> getUsuarios() { return vertices; }
-	public List<Arista> getAristas() { return aristas; }
+	@Override
+    public List<Arista> getAristas() { return aristas; }
 }

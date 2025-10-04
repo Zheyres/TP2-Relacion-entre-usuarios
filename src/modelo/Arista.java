@@ -1,6 +1,6 @@
 package modelo;
 
-public class Arista implements Comparable<Arista> {
+public class Arista implements IArista, Comparable<Arista> {
     private Usuario u1;
     private Usuario u2;
     private int peso;
@@ -10,9 +10,11 @@ public class Arista implements Comparable<Arista> {
         this.u2 = u2;
         this.peso = u1.similaridad(u2);
     }
-
+    @Override
     public Usuario getUsuario1() { return u1; }
+    @Override
     public Usuario getUsuario2() { return u2; }
+    @Override
     public int getPeso() { return peso; }
 
     @Override

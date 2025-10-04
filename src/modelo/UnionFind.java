@@ -1,9 +1,10 @@
 package modelo;
-public class UnionFind {
+public class UnionFind implements IUnionFind {
    
 	private int[] parent;
     private int[] rank;
-
+    
+    
     public UnionFind(int n) {  // "n" es el tamano del grafo, la cantidad de vertices/usuarios
         parent = new int[n];
         rank = new int[n];
@@ -13,13 +14,15 @@ public class UnionFind {
         }
     }
 
-    public int find(int x) { //X es el conjunto donde pertenece ademas del indice del vertice ne la lista
+    @Override
+    public int find(int x) { //X es el conjunto donde pertenece ademas del indice del vertice en la lista
         if (parent[x] != x) {
             parent[x] = find(parent[x]); // path compression
         }
         return parent[x];
     }
-
+    
+    @Override
     public boolean union(int x, int y) {
         int rootX = find(x);
         int rootY = find(y);
