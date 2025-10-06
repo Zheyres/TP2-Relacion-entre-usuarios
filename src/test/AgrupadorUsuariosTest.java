@@ -87,8 +87,8 @@ public class AgrupadorUsuariosTest {
         // Si el MST es {u1-u2, u2-u3, u3-u4}, sus pesos serán: 1, 10, 1. La mayor es 10.
 
         AgrupadorUsuarios agrupador = new AgrupadorUsuarios(mst);
-        List<List<Usuario>> grupos = agrupador.dividirEnGrupos();
-
+        List<List<Usuario>> grupos = agrupador.dividirEnKGrupos(2);
+        System.out.println(grupos);
         assertEquals(2, grupos.size(), "Debería dividirse en 2 grupos al remover la arista más pesada (peso 10).");
 
         Set<Set<String>> esperado = Set.of(
@@ -119,7 +119,7 @@ public class AgrupadorUsuariosTest {
         );
 
         AgrupadorUsuarios agrupador = new AgrupadorUsuarios(mst);
-        List<List<Usuario>> grupos = agrupador.dividirEnGrupos();
+        List<List<Usuario>> grupos = agrupador.dividirEnKGrupos(2);
 
         assertEquals(2, grupos.size(), "Debería dividirse en 2 grupos (uno de tamaño 2 y uno de tamaño 1).");
 
@@ -149,7 +149,7 @@ public class AgrupadorUsuariosTest {
         );
 
         AgrupadorUsuarios agrupador = new AgrupadorUsuarios(mst);
-        List<List<Usuario>> grupos = agrupador.dividirEnGrupos();
+        List<List<Usuario>> grupos = agrupador.dividirEnKGrupos(2);
 
         assertEquals(2, grupos.size(), "La única arista debe ser removida, creando 2 componentes aisladas.");
 
