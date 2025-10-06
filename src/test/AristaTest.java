@@ -2,7 +2,6 @@ package test;
 
 
 import modelo.Arista;
-import modelo.IArista;
 import modelo.Usuario;
 
 import static org.junit.Assert.assertTrue;

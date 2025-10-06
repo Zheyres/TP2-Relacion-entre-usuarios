@@ -6,7 +6,7 @@ public class AgrupadorUsuarios {
     
     
     private List<Arista> mst;
-    
+    private List<Arista> mstOriginal;
     //para no dejar afuera los aislados
     private Set<Usuario> todosLosUsuarios = new HashSet<>(); 
     
@@ -16,7 +16,7 @@ public class AgrupadorUsuarios {
     public AgrupadorUsuarios(List<Arista> mst) {
         
         this.mst = new ArrayList<>(mst);
-        
+        this.mstOriginal = new ArrayList<>(mst);
         inicializarUsuarios();
     }
 
@@ -103,5 +103,27 @@ public class AgrupadorUsuarios {
                 dfs(vecino, grupo, visitados, adyacencia);
             }
         }
+    }
+    public List<List<Usuario>> dividirEnKGrupos(int k) {
+        if (k <= 1 || todosLosUsuarios.size() <= k) {
+            // Manejo de casos límite
+            // ...
+        }
+        
+        // 1. Clonar el MST original para no modificar la fuente si se usa en otro lado.
+        List<Arista> aristasOrdenadas = new ArrayList<>(this.mstOriginal); 
+        
+        // 2. Ordenar todas las aristas por peso DESCENDENTE
+        aristasOrdenadas.sort(Comparator.comparingInt(Arista::getPeso).reversed());
+
+        // 3. Crear el MST de trabajo removiendo las K-1 aristas más pesadas
+        List<Arista> mstDeTrabajo = new ArrayList<>(aristasOrdenadas.subList(k - 1, aristasOrdenadas.size()));
+
+        // 4. Actualizar la lista 'mst' interna para que los métodos privados trabajen con ella
+        this.mst = mstDeTrabajo; // O refactorizar para que los métodos usen mstDeTrabajo directamente
+        
+        // 5. Aplicar la lógica de componentes que ya tienes
+        construirAdyacencia(); 
+        return encontrarComponentes(); 
     }
 }
