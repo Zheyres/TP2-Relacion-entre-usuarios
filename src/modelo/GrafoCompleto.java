@@ -25,6 +25,8 @@ public class GrafoCompleto {
             for (int j = i + 1; j < vertices.size(); j++) {
                 aristas.add(new Arista(vertices.get(i), vertices.get(j)));
             }
+            
+            System.out.print(aristas.toString() + "\n");
         }
     }
 }
