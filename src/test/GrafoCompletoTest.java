@@ -21,6 +21,7 @@ public class GrafoCompletoTest {
         g.agregarUsuario(u3);
         g.construirAristas();
         List<Arista> aristas = g.getAristas();
+        
         // Para 3 nodos, debe haber 3 aristas
         assertEquals(3, aristas.size());
     }
