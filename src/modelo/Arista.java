@@ -14,7 +14,7 @@ public class Arista implements IArista, Comparable<Arista> {
     public Usuario getUsuario1() { return u1; }
     @Override
     public Usuario getUsuario2() { return u2; }
-    @Override
+    @Override 
     public int getPeso() { return peso; }
 
     @Override
