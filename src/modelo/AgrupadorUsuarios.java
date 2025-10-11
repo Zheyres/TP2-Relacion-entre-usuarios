@@ -4,10 +4,10 @@ import java.util.*;
 
 public class AgrupadorUsuarios implements IAgrupadorUsuarios {
     
-    // Almacena la copia inmutable del MST original.
+    
     private final List<Arista> mstOriginal; 
     
-    // NUEVO: Almacena las aristas removidas después de la última llamada a dividirEnKGrupos.
+    
     private List<Arista> aristasRemovidas; 
     
     // Conjunto de trabajo para las aristas restantes (se redefine en cada llamada).
@@ -18,7 +18,7 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
     
     public AgrupadorUsuarios(List<Arista> mst) {
         this.mstOriginal = new ArrayList<>(mst);
-        // Inicializar la lista de resultados removidos (inicialmente vacía)
+        
         this.aristasRemovidas = new ArrayList<>(); 
         inicializarUsuarios();
     }
@@ -37,7 +37,7 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
      */
     @Override
     public List<Arista> getAristasRemovidas() {
-        // Devolver una copia para evitar modificación externa de la lista interna
+        
         return new ArrayList<>(aristasRemovidas); 
     }
     
@@ -52,21 +52,19 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
     public List<List<Usuario>> dividirEnKGrupos(int k) {
         int maxGrupos = todosLosUsuarios.size();
         
-        if (k <= 1 || k > maxGrupos) {
-             throw new IllegalArgumentException("El número de grupos (k) debe estar entre 2 y el número total de usuarios (" + maxGrupos + ").");
-        }
+        if (k <= 1 || k > maxGrupos) {k=maxGrupos;}
 
-        // 1. Obtener y ordenar las aristas
+        //  Obtener y ordenar las aristas
         List<Arista> aristasOrdenadas = new ArrayList<>(this.mstOriginal); 
         aristasOrdenadas.sort(Comparator.comparingInt(Arista::getPeso).reversed());
 
-        // 2. Determinar y capturar las aristas removidas/restantes
+       
         int numAristasARemover = k - 1;
         
         if (aristasOrdenadas.size() > numAristasARemover) {
-            // Capturar las k-1 aristas más pesadas y ALMACENARLAS en el atributo
+            
             this.aristasRemovidas = aristasOrdenadas.subList(0, numAristasARemover);
-            // Capturar las aristas que forman los grupos
+           
             this.mstTrabajo = aristasOrdenadas.subList(numAristasARemover, aristasOrdenadas.size());
         } else {
             // Caso borde: se remueven todas las aristas
@@ -74,11 +72,11 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
             this.mstTrabajo = new ArrayList<>();
         }
 
-        // 3. Configurar el grafo de trabajo y encontrar las componentes
+        //  Configurar el grafo de trabajo y encontrar las componentes
         construirAdyacencia(); 
         List<List<Usuario>> grupos = encontrarComponentes(); 
         
-        // 4. Devolver SÓLO los grupos (cumpliendo la nueva responsabilidad)
+        
         return grupos; 
     }
  

@@ -132,7 +132,7 @@ public class frmRegistrarUsuario {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				Usuario user = new Usuario(txtNombre.getText(), (int)spinnerTango.getValue(), (int)spinnerTango.getValue(), (int)spinnerTango.getValue(), (int)spinnerTango.getValue());
+				Usuario user = new Usuario(txtNombre.getText(), (int)spinnerTango.getValue(), (int)spinnerFolclore.getValue(), (int)spinnerRock.getValue(), (int)spinnerUrbano.getValue());
 				grafo.agregarUsuario(user);
 				grafo.construirAristas();
 
