@@ -28,4 +28,6 @@ public interface IGrafoCompleto {
      */
 	List<Arista> getAristas();
 	
+	String imprimirUsuarios();
+	
 }

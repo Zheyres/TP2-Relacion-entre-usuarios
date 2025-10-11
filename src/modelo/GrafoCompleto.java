@@ -17,6 +17,7 @@ public class GrafoCompleto implements IGrafoCompleto {
     public void agregarUsuario(Usuario u) {
         vertices.add(u);
     }
+    
     @Override
     public void construirAristas() {
         aristas.clear();
@@ -27,7 +28,6 @@ public class GrafoCompleto implements IGrafoCompleto {
                 aristas.add(new Arista(u1, u2));
             }
             
-            System.out.print(aristas.toString() + "\n");
         }
     }
     
@@ -42,5 +42,28 @@ public class GrafoCompleto implements IGrafoCompleto {
 	
     @Override
     public List<Arista> getAristas() { return aristas; }
+    
+    @Override
+    public String imprimirUsuarios() {
+    	
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for(Usuario user : vertices) {
+    		
+    		sb.append(user.toString());
+    		sb.append("\n");
+    		
+    	}
+    	
+    	return sb.toString();
+    	
+    }
 	
+    @Override 
+    public String toString() {
+    	
+    	return vertices.toString() + " --- " + aristas.toString();
+    	
+    }
+    
 }

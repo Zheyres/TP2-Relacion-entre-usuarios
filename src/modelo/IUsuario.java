@@ -10,13 +10,11 @@ public interface IUsuario {
 	 */
 	int similaridad(Usuario otro);
 	
-	
-	
-	//Getters
 	String getNombre();
-	    int getT();
-	  	int getF();
-	    int getR(); 
-	    int getU();
+	
+	int getT();
+	int getF();
+	int getR(); 
+	int getU();
 
 }

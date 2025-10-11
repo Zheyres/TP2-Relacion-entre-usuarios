@@ -32,4 +32,11 @@ public class KruskalMST implements IKruskalMST {
     public List<Arista> getMST() {
         return mst;
     }
+    
+    @Override
+    public String toString() {
+    	
+    	return mst.toString();
+    	
+    }
 }
