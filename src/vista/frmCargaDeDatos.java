@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.JButton;
 
 import modelo.IGrafoCompleto;
@@ -23,10 +24,12 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.DropMode;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+import java.awt.Color;
+import java.awt.Font;
 
 public class frmCargaDeDatos {
 
-	private JFrame frame;
+	private JFrame frmBuscadorDeSimilaridades;
 	private JButton btnMostrarMST;
 	private JSpinner spinnerCantidadDeGrupos;
 	private JLabel lblNewLabel;
@@ -45,12 +48,23 @@ public class frmCargaDeDatos {
 			public void run() {
 				try {
 					frmCargaDeDatos window = new frmCargaDeDatos();
-					window.frame.setVisible(true);
+					window.frmBuscadorDeSimilaridades.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		try {
+		    for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    // Si Nimbus no está disponible, se usa el look and feel por defecto
+		    e.printStackTrace();
+		}
 	}
 
 	/**
@@ -64,11 +78,13 @@ public class frmCargaDeDatos {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 480, 420);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmBuscadorDeSimilaridades = new JFrame();
+		frmBuscadorDeSimilaridades.setBackground(new Color(192, 192, 192));
+		frmBuscadorDeSimilaridades.getContentPane().setBackground(new Color(135, 206, 250));
+		frmBuscadorDeSimilaridades.setTitle("Buscador de Similaridades V1.0");
+		frmBuscadorDeSimilaridades.setBounds(100, 100, 480, 420);
+		frmBuscadorDeSimilaridades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBuscadorDeSimilaridades.getContentPane().setLayout(null);
 
 		
 		this.grafo = new GrafoCompleto();
@@ -79,6 +95,7 @@ public class frmCargaDeDatos {
 		
 		
 		btnMostrarMST = new JButton("Mostrar usuarios");
+		btnMostrarMST.setBackground(new Color(244, 164, 96));
 		btnMostrarMST.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -88,23 +105,27 @@ public class frmCargaDeDatos {
 			}
 		});
 		btnMostrarMST.setBounds(10, 68, 149, 32);
-		frame.getContentPane().add(btnMostrarMST);
+		frmBuscadorDeSimilaridades.getContentPane().add(btnMostrarMST);
 		
 		spinnerCantidadDeGrupos = new JSpinner();
+		spinnerCantidadDeGrupos.setBackground(new Color(211, 211, 211));
 		spinnerCantidadDeGrupos.setModel(new SpinnerNumberModel(Integer.valueOf(2), Integer.valueOf(2), null, Integer.valueOf(1)));
-		spinnerCantidadDeGrupos.setBounds(10, 179, 30, 20);
-		frame.getContentPane().add(spinnerCantidadDeGrupos);
+		spinnerCantidadDeGrupos.setBounds(10, 179, 50, 30);
+		frmBuscadorDeSimilaridades.getContentPane().add(spinnerCantidadDeGrupos);
 		
 		lblNewLabel = new JLabel("Cantidad de grupos:");
 		lblNewLabel.setBounds(10, 154, 134, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmBuscadorDeSimilaridades.getContentPane().add(lblNewLabel);
 		
 		textPane = new JTextPane();
+		textPane.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		textPane.setBackground(new Color(222, 184, 135));
 		textPane.setEditable(false);
 		textPane.setBounds(169, 11, 285, 359);
-		frame.getContentPane().add(textPane);
+		frmBuscadorDeSimilaridades.getContentPane().add(textPane);
 		
 		btnMostrarGrupos = new JButton("Mostrar grupos");
+		btnMostrarGrupos.setBackground(new Color(123, 104, 238));
 		btnMostrarGrupos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -113,10 +134,11 @@ public class frmCargaDeDatos {
 			}
 		});
 		btnMostrarGrupos.setBounds(10, 111, 149, 32);
-		frame.getContentPane().add(btnMostrarGrupos);
+		frmBuscadorDeSimilaridades.getContentPane().add(btnMostrarGrupos);
 		
 
 		JButton btnRegistrar = new JButton("Registrar usuario");
+		btnRegistrar.setBackground(new Color(127, 255, 0));
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -125,7 +147,7 @@ public class frmCargaDeDatos {
 			}
 		});
 		btnRegistrar.setBounds(10, 25, 149, 32);
-		frame.getContentPane().add(btnRegistrar);
+		frmBuscadorDeSimilaridades.getContentPane().add(btnRegistrar);
 		
 	}
 }

@@ -22,6 +22,8 @@ import modelo.Usuario;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
+import java.awt.Font;
+import java.awt.Color;
 
 public class frmRegistrarUsuario {
 
@@ -66,6 +68,7 @@ public class frmRegistrarUsuario {
 	 */
 	private void initialize() {
 		frmRegistrarUsuario = new JFrame();
+		frmRegistrarUsuario.getContentPane().setBackground(new Color(135, 206, 250));
 		frmRegistrarUsuario.setAutoRequestFocus(false);
 		frmRegistrarUsuario.setResizable(false);
 		frmRegistrarUsuario.setType(Type.POPUP);
@@ -75,11 +78,12 @@ public class frmRegistrarUsuario {
 		
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(10, 36, 184, 20);
+		txtNombre.setBounds(10, 36, 184, 30);
 		frmRegistrarUsuario.getContentPane().add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Nombre:");
+		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 12));
 		lblNewLabel.setBounds(10, 11, 78, 14);
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel);
 		
@@ -88,21 +92,22 @@ public class frmRegistrarUsuario {
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Folclore");
-		lblNewLabel_2.setBounds(93, 92, 78, 14);
+		lblNewLabel_2.setBackground(new Color(211, 211, 211));
+		lblNewLabel_2.setBounds(105, 92, 78, 14);
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_4 = new JLabel("Urbano");
-		lblNewLabel_4.setBounds(93, 148, 78, 14);
+		lblNewLabel_4.setBounds(105, 149, 78, 14);
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel_4);
 		
 		JSpinner spinnerTango = new JSpinner();
 		spinnerTango.setModel(new SpinnerNumberModel(1, 1, 5, 1));
-		spinnerTango.setBounds(10, 117, 30, 20);
+		spinnerTango.setBounds(10, 117, 45, 25);
 		frmRegistrarUsuario.getContentPane().add(spinnerTango);
 		
 		JSpinner spinnerFolclore = new JSpinner();
 		spinnerFolclore.setModel(new SpinnerNumberModel(1, 1, 5, 1));
-		spinnerFolclore.setBounds(93, 117, 30, 20);
+		spinnerFolclore.setBounds(103, 117, 45, 25);
 		frmRegistrarUsuario.getContentPane().add(spinnerFolclore);
 		
 		JSpinner spinner_2 = new JSpinner();
@@ -111,23 +116,25 @@ public class frmRegistrarUsuario {
 		
 		JSpinner spinnerUrbano = new JSpinner();
 		spinnerUrbano.setModel(new SpinnerNumberModel(1, 1, 5, 1));
-		spinnerUrbano.setBounds(93, 173, 30, 20);
+		spinnerUrbano.setBounds(104, 173, 45, 25);
 		frmRegistrarUsuario.getContentPane().add(spinnerUrbano);
 		
 		JSpinner spinnerRock = new JSpinner();
 		spinnerRock.setModel(new SpinnerNumberModel(1, 1, 5, 1));
-		spinnerRock.setBounds(10, 173, 30, 20);
+		spinnerRock.setBounds(10, 173, 45, 25);
 		frmRegistrarUsuario.getContentPane().add(spinnerRock);
 		
 		JLabel lblNewLabel_4_2 = new JLabel("Rock Nacional");
-		lblNewLabel_4_2.setBounds(10, 148, 78, 14);
+		lblNewLabel_4_2.setBounds(10, 149, 83, 14);
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel_4_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Intereses:");
-		lblNewLabel_3.setBounds(10, 67, 78, 14);
+		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 12));
+		lblNewLabel_3.setBounds(10, 69, 78, 14);
 		frmRegistrarUsuario.getContentPane().add(lblNewLabel_3);
 		
 		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.setBackground(new Color(222, 184, 135));
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
