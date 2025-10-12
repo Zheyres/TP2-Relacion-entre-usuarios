@@ -20,13 +20,13 @@ public class Usuario implements IUsuario {
     @Override
     public String getNombre() { return nombre; }
     @Override
-    public int getT() { return tango; }
+    public int getTango() { return tango; }
     @Override
-    public int getF() { return folclore; }
+    public int getFolclore() { return folclore; }
     @Override
-    public int getR() { return rock; }
+    public int getRock() { return rock; }
     @Override
-    public int getU() { return urbano; }
+    public int getUrbano() { return urbano; }
 
     // Método para calcular la similitud con otro usuario
     @Override

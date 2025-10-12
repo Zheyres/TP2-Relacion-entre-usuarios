@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-// Importa tus clases reales
+
 import modelo.Usuario; 
 import modelo.Arista;
 import modelo.AgrupadorUsuarios;
@@ -12,16 +12,13 @@ public class AgrupadorUsuariosTest {
 
     // --- Clases de Mocking y Helpers ---
     
-    /**
-     * Helper para crear un Mock de Usuario que devuelve una similaridad predefinida.
-     * Dado que el constructor original requiere 4 ints, los usamos como placeholders.
-     */
+    
     private Usuario u(String nombre, int similaridadDeseadaConOtro) {
         // Se sobreescribe similaridad() para devolver el peso exacto requerido en el test.
         return new Usuario(nombre, 0, 0, 0, 0) {
             @Override
             public int similaridad(Usuario otro) {
-                // Aquí simulamos que la similaridad con el 'otro' es el peso deseado
+                //  simulamos que la similaridad con el 'otro' es el peso deseado
                 // (Esta simulación asume un grafo simple donde cada usuario solo tiene
                 // un par relevante en el MST para simplificar el test)
                 return similaridadDeseadaConOtro;
@@ -101,7 +98,7 @@ public class AgrupadorUsuariosTest {
     }
 
 // -------------------------------------------------------------------------------------------------
-// Caso 2: Identificación de un Usuario Aislado (Outlier)
+// Caso 2: Identificación de un Usuario Aislado 
 
     @Test
     void testUsuarioAislado() {

@@ -32,11 +32,8 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
         }
     }
     
-    // --- NUEVO GETTER PÚBLICO ---
+
     
-    /**
-     * Devuelve las aristas que fueron removidas en la última ejecución de dividirEnKGrupos.
-     */
     @Override
     public List<Arista> getAristasRemovidas() {
         
@@ -134,7 +131,7 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
             double suma = 0;
             int cantidad = grupo.size() * 4; // 4 atributos
             for (Usuario u : grupo) {
-                suma += u.getT() + u.getR() + u.getU() + u.getF();
+                suma += u.getTango() + u.getRock() + u.getUrbano() + u.getFolclore();
             }
             promedios[i] = suma / cantidad;
         }
@@ -152,10 +149,10 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
             double sumaTango = 0, sumaRock = 0, sumaUrbano = 0, sumaFolclore = 0;
 
             for (Usuario u : grupo) {
-                sumaTango += u.getT();
-                sumaRock += u.getR();
-                sumaUrbano += u.getU();
-                sumaFolclore += u.getF();
+                sumaTango += u.getTango();
+                sumaRock += u.getRock();
+                sumaUrbano += u.getUrbano();
+                sumaFolclore += u.getFolclore();
             }
 
             int n = grupo.size();

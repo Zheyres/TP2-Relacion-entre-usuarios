@@ -12,9 +12,9 @@ public interface IUsuario {
 	
 	String getNombre();
 	
-	int getT();
-	int getF();
-	int getR(); 
-	int getU();
+	int getTango();
+	int getFolclore();
+	int getRock(); 
+	int getUrbano();
 
 }
