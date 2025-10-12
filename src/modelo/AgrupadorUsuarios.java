@@ -124,11 +124,13 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
             }
         }
     }
+    @Override
     public double[] calcularPromedioGeneralPorGrupo() {
-        double[] promedios = new double[gruposGenerados.size()];
+        if(gruposGenerados==null) {}
+    	double[] promedios = new double[this.gruposGenerados.size()];
 
-        for (int i = 0; i < gruposGenerados.size(); i++) {
-            List<Usuario> grupo = gruposGenerados.get(i);
+        for (int i = 0; i < this.gruposGenerados.size(); i++) {
+            List<Usuario> grupo = this.gruposGenerados.get(i);
             double suma = 0;
             int cantidad = grupo.size() * 4; // 4 atributos
             for (Usuario u : grupo) {
@@ -139,12 +141,14 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
         return promedios;
     }
     
+    @Override
     public double[][] calcularPromedioPorAtributo() {
-        // filas = grupos, columnas = atributos
-        double[][] promedios = new double[gruposGenerados.size()][4];
+    	if(gruposGenerados==null) {}
+    	// filas = grupos, columnas = atributos
+        double[][] promedios = new double[this.gruposGenerados.size()][4];
 
-        for (int i = 0; i < gruposGenerados.size(); i++) {
-            List<Usuario> grupo = gruposGenerados.get(i);
+        for (int i = 0; i < this.gruposGenerados.size(); i++) {
+            List<Usuario> grupo = this.gruposGenerados.get(i);
             double sumaTango = 0, sumaRock = 0, sumaUrbano = 0, sumaFolclore = 0;
 
             for (Usuario u : grupo) {

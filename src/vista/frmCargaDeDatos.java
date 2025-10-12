@@ -26,6 +26,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JScrollPane;
 
 public class frmCargaDeDatos {
 
@@ -122,10 +123,16 @@ public class frmCargaDeDatos {
 		textPane.setBackground(new Color(248, 248, 255));
 		textPane.setEditable(false);
 		textPane.setBounds(169, 11, 285, 359);
-		frmBuscadorDeSimilaridades.getContentPane().add(textPane);
+		
+		
+		JScrollPane scrollPane = new JScrollPane(textPane);
+		scrollPane.setBounds(169, 11, 300, 359);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		frmBuscadorDeSimilaridades.getContentPane().add(scrollPane);
 		
 		btnMostrarGrupos = new JButton("Mostrar grupos");
-		btnMostrarGrupos.setBackground(new Color(123, 104, 238));
+		btnMostrarGrupos.setBackground(new Color(244, 164, 96));
 		btnMostrarGrupos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -148,11 +155,6 @@ public class frmCargaDeDatos {
 		});
 		btnRegistrar.setBounds(10, 25, 149, 32);
 		frmBuscadorDeSimilaridades.getContentPane().add(btnRegistrar);
-		
-		JButton btnNewButton = new JButton("Promedio Gustos");
-		btnNewButton.setBackground(new Color(222, 184, 135));
-		btnNewButton.setBounds(10, 222, 149, 32);
-		frmBuscadorDeSimilaridades.getContentPane().add(btnNewButton);
 		
 	}
 }
