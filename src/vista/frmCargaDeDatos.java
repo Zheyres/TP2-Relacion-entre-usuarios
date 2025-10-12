@@ -119,7 +119,7 @@ public class frmCargaDeDatos {
 		
 		textPane = new JTextPane();
 		textPane.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-		textPane.setBackground(new Color(222, 184, 135));
+		textPane.setBackground(new Color(248, 248, 255));
 		textPane.setEditable(false);
 		textPane.setBounds(169, 11, 285, 359);
 		frmBuscadorDeSimilaridades.getContentPane().add(textPane);
@@ -148,6 +148,11 @@ public class frmCargaDeDatos {
 		});
 		btnRegistrar.setBounds(10, 25, 149, 32);
 		frmBuscadorDeSimilaridades.getContentPane().add(btnRegistrar);
+		
+		JButton btnNewButton = new JButton("Promedio Gustos");
+		btnNewButton.setBackground(new Color(222, 184, 135));
+		btnNewButton.setBounds(10, 222, 149, 32);
+		frmBuscadorDeSimilaridades.getContentPane().add(btnNewButton);
 		
 	}
 }

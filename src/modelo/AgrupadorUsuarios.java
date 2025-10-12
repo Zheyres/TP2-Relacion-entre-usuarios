@@ -7,14 +7,16 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
     
     private final List<Arista> mstOriginal; 
     
-    
     private List<Arista> aristasRemovidas; 
     
     // Conjunto de trabajo para las aristas restantes (se redefine en cada llamada).
     private List<Arista> mstTrabajo;
     
     private final Set<Usuario> todosLosUsuarios = new HashSet<>(); 
+    
     private Map<Usuario, List<Usuario>> adyacencia; 
+    private List<List<Usuario>> gruposGenerados;
+    
     
     public AgrupadorUsuarios(List<Arista> mst) {
         this.mstOriginal = new ArrayList<>(mst);
@@ -80,7 +82,7 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
         return grupos; 
     }
  
-    // --- MÉTODOS PRIVADOS AUXILIARES (Sin Cambios Lógicos) ---
+    // --- MÉTODOS PRIVADOS AUXILIARES  ---
 
     private void construirAdyacencia() {
         adyacencia = new HashMap<>();
@@ -108,6 +110,7 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
                 componentes.add(grupo);
             }
         }
+        this.gruposGenerados=componentes;
         return componentes;
     }
 
@@ -121,4 +124,44 @@ public class AgrupadorUsuarios implements IAgrupadorUsuarios {
             }
         }
     }
+    public double[] calcularPromedioGeneralPorGrupo() {
+        double[] promedios = new double[gruposGenerados.size()];
+
+        for (int i = 0; i < gruposGenerados.size(); i++) {
+            List<Usuario> grupo = gruposGenerados.get(i);
+            double suma = 0;
+            int cantidad = grupo.size() * 4; // 4 atributos
+            for (Usuario u : grupo) {
+                suma += u.getT() + u.getR() + u.getU() + u.getF();
+            }
+            promedios[i] = suma / cantidad;
+        }
+        return promedios;
+    }
+    
+    public double[][] calcularPromedioPorAtributo() {
+        // filas = grupos, columnas = atributos
+        double[][] promedios = new double[gruposGenerados.size()][4];
+
+        for (int i = 0; i < gruposGenerados.size(); i++) {
+            List<Usuario> grupo = gruposGenerados.get(i);
+            double sumaTango = 0, sumaRock = 0, sumaUrbano = 0, sumaFolclore = 0;
+
+            for (Usuario u : grupo) {
+                sumaTango += u.getT();
+                sumaRock += u.getR();
+                sumaUrbano += u.getU();
+                sumaFolclore += u.getF();
+            }
+
+            int n = grupo.size();
+            promedios[i][0] = sumaTango / n;
+            promedios[i][1] = sumaRock / n;
+            promedios[i][2] = sumaUrbano / n;
+            promedios[i][3] = sumaFolclore / n;
+        }
+
+        return promedios;
+    }
+    
 }
