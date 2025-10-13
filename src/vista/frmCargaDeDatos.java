@@ -34,6 +34,7 @@ public class frmCargaDeDatos {
 	private JTextPane textPane;
 	private JButton btnMostrarGrupos;
 
+	@SuppressWarnings("unused")
 	private IAgrupadorUsuarios agrupador;
 	private IKruskalMST kruskal;
 	private IGrafoCompleto grafo;
@@ -85,7 +86,7 @@ public class frmCargaDeDatos {
 		frmBuscadorDeSimilaridades.setBounds(100, 100, 498, 420);
 		frmBuscadorDeSimilaridades.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmBuscadorDeSimilaridades.getContentPane().setLayout(null);
-
+		StyleJOptionPanel.StyleJOptionPannel();
 		
 		this.grafo = new GrafoCompleto();
 		
