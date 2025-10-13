@@ -29,5 +29,7 @@ public interface IGrafoCompleto {
 	List<Arista> getAristas();
 	
 	String imprimirUsuarios();
+
+	void eliminarUsuario(Usuario seleccionado);
 	
 }

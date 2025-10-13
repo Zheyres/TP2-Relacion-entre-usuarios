@@ -65,4 +65,9 @@ public class TextPaneManager {
 
 	    return sb.toString();
 	}
+	public static void limpiarTextPane(JTextPane textPane) {
+	    textPane.setText("");
+	}
+
+
 }
